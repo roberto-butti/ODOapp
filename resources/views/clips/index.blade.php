@@ -19,7 +19,7 @@
                 <label for="clip-name" class="col-sm-3 control-label">Clip</label>
 
                 <div class="col-sm-6">
-                    <input type="text" name="name" id="clip-name" class="form-control">
+                    <input type="text" name="caption" id="clip-caption" class="form-control">
                 </div>
             </div>
 
@@ -34,5 +34,45 @@
         </form>
     </div>
 
-    <!-- TODO: Current Clips -->
+<!-- Current clips -->
+    @if (count($clips) > 0)
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Current clips
+            </div>
+
+            <div class="panel-body">
+                <table class="table table-striped clip-table">
+
+                    <!-- Table Headings -->
+                    <thead>
+                        <th>clip</th>
+                        <th>&nbsp;</th>
+                    </thead>
+
+                    <!-- Table Body -->
+                    <tbody>
+                        @foreach ($clips as $clip)
+                            <tr>
+                                <!-- clip Caption -->
+                                <td class="table-text">
+                                    <div>{{ $clip->caption }}</div>
+                                </td>
+
+                                <!-- Delete Button -->
+                                <td>
+                                    <form action="/clip/{{ $clip->id }}" method="POST">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+
+                                        <button>Delete Clip</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    @endif
 @endsection

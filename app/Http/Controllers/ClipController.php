@@ -6,17 +6,28 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Repositories\ClipRepository;
 
 class ClipController extends Controller
 {
+
+    /**
+     * The clip repository instance.
+     *
+     * @var ClipRepository
+     */
+    protected $clips;
+
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(ClipRepository $clips)
     {
         $this->middleware('auth');
+        $this->clips = $clips;
     }
 
     /**
@@ -27,10 +38,8 @@ class ClipController extends Controller
      */
     public function index(Request $request)
     {
-        $tasks = Clip::where('user_id', $request->user()->id)->get();
-
         return view('clips.index', [
-            'clips' => $clips,
+            'clips' => $this->clips->forUser($request->user()),
         ]);
     }
 

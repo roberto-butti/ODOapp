@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+
 
 
 /*
@@ -30,6 +28,8 @@ Route::get('/', function () {
 Route::group(['middleware' => ['web']], function () {
 
   Route::auth();
+  Route::get('/', 'MainController@index');
+
   Route::get('/clips', 'ClipController@index');
   Route::post('/clip', 'ClipController@store');
   Route::delete('/clip/{clip}', 'ClipController@destroy');

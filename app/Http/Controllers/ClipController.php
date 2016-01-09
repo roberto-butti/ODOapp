@@ -57,8 +57,22 @@ class ClipController extends Controller
       $request->user()->clips()->create([
         'caption' => $request->caption,
     ]);
-
     return redirect('/clips');
-
   }
+
+  /**
+   * Destroy the given clip.
+   *
+   * @param  Request  $request
+   * @param  Clip  $clip
+   * @return Response
+   */
+  public function destroy(Request $request, Clip $clip)
+  {
+      $this->authorize('destroy', $clip);
+      $clip->delete();
+      return redirect('/clips');
+  }
+
+
 }

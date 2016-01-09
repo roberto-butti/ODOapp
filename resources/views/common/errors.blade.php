@@ -1,4 +1,4 @@
-// resources/views/common/errors.blade.php
+{{-- resources/views/common/errors.blade.php --}}
 
 @if (count($errors) > 0)
     <!-- Form Error List -->

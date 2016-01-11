@@ -8,6 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Repositories\ClipRepository;
 
+use App\Clip;
+
 class ClipController extends Controller
 {
 
@@ -53,11 +55,21 @@ class ClipController extends Controller
   {
       $this->validate($request, [
           'caption' => 'required|max:255',
+          //'audio'       => 'required|mimes:audio/mpeg'
       ]);
-      $request->user()->clips()->create([
+      $clip = $request->user()->clips()->create([
         'caption' => $request->caption,
-    ]);
-    return redirect('/clips');
+        'url_clip' => "test",
+      ]);
+      $clipName = $clip->id . '.' .$request->file('audio')->getClientOriginalExtension();
+      $request->file('audio')->move(
+        base_path() . '/public/upload/clip/catalog/', $clipName
+      );
+      $clip->url_clip = $clipName;
+      $clip->save();
+
+
+      return redirect('/clips');
   }
 
   /**

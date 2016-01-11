@@ -11,12 +11,22 @@
         @include('common.errors')
 
         <!-- New clip Form -->
-        <form action="/clip" method="POST" class="form-horizontal">
+
+        <form action="/clip" method="POST" class="form-horizontal" enctype="multipart/form-data">
             {{ csrf_field() }}
+
+           <!-- clip Audio file -->
+            <div class="form-group">
+                <label for="clip-name" class="col-sm-3 control-label">Audio</label>
+
+                <div class="col-sm-6">
+                    <input type="file" name="audio" id="clip-audio" class="form-control">
+                </div>
+            </div>
 
             <!-- clip Name -->
             <div class="form-group">
-                <label for="clip-name" class="col-sm-3 control-label">Clip</label>
+                <label for="clip-name" class="col-sm-3 control-label">Caption</label>
 
                 <div class="col-sm-6">
                     <input type="text" name="caption" id="clip-caption" class="form-control">
@@ -46,7 +56,8 @@
 
                     <!-- Table Headings -->
                     <thead>
-                        <th>clip</th>
+                        <th>Caption</th>
+                        <th>File</th>
                         <th>&nbsp;</th>
                     </thead>
 
@@ -57,6 +68,9 @@
                                 <!-- clip Caption -->
                                 <td class="table-text">
                                     <div>{{ $clip->caption }}</div>
+                                </td>
+                                <td class="table-text">
+                                    <div>{{ $clip->url_clip }}</div>
                                 </td>
 
                                 <!-- Delete Button -->

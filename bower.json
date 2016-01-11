@@ -1,0 +1,23 @@
+{
+  "name": "ODOapp",
+  "version": "0.1.0",
+  "homepage": "https://github.com/roberto-butti/ODOapp",
+  "authors": [
+    "roberto-butti"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "microm": "~0.2.4"
+  }
+}

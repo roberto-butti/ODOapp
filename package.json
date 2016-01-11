@@ -4,7 +4,25 @@
     "gulp": "^3.8.8"
   },
   "dependencies": {
-    "laravel-elixir": "^4.0.0",
-    "bootstrap-sass": "^3.0.0"
+    "balanced-match": "^0.3.0",
+    "bootstrap-sass": "^3.0.0",
+    "bower": "^1.7.2",
+    "concat-map": "0.0.1",
+    "core-util-is": "^1.0.2",
+    "glob": "^6.0.4",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-uglify": "^1.5.1",
+    "inherits": "^2.0.1",
+    "isarray": "^1.0.0",
+    "laravel-elixir": "^4.2.0",
+    "lodash": "^3.10.1",
+    "lodash._getnative": "^3.9.1",
+    "lodash.isarguments": "^3.0.4",
+    "lodash.isarray": "^3.0.4",
+    "minimatch": "^3.0.0",
+    "process-nextick-args": "^1.0.6",
+    "readable-stream": "^2.0.5",
+    "util-deprecate": "^1.0.2"
   }
 }

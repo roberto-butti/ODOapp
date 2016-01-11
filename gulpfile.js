@@ -1,4 +1,12 @@
-var elixir = require('laravel-elixir');
+var elixir = require('laravel-elixir'),
+	vendorPath = "bower_components",
+	gulp = require("gulp"),
+	uglify = require('gulp-uglify'),
+	concat = require('gulp-concat'),
+	jsPlugin = [
+		vendorPath + "/microm/dist/microm.min.js",
+		vendorPath + "/angular/angular.min.js"
+	];
 
 /*
  |--------------------------------------------------------------------------
@@ -13,4 +21,13 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
     mix.sass('app.scss');
+});
+
+gulp.task("plugin", function(){
+	return gulp.src(jsPlugin)
+	.pipe(concat('plugin.js'))
+	.pipe(uglify({
+		preserveComments: "some"
+	}))
+	.pipe(gulp.dest("public/vendor/js"));
 });

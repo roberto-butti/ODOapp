@@ -20,7 +20,8 @@
                 <label for="clip-name" class="col-sm-3 control-label">Audio</label>
 
                 <div class="col-sm-6">
-                    <input type="file" name="audio" id="clip-audio" class="form-control">
+                    <input type="file" accept="audio/*" capture="microphone" name="audio" id="clip-audio" class="form-control">
+
                 </div>
             </div>
 
@@ -58,6 +59,7 @@
                     <thead>
                         <th>Caption</th>
                         <th>File</th>
+                        <th>User</th>
                         <th>&nbsp;</th>
                     </thead>
 
@@ -71,7 +73,13 @@
                                 </td>
                                 <td class="table-text">
                                     <div>{{ $clip->url_clip }}</div>
+
                                 </td>
+                                <td class="table-text">
+                                    <div>{{ $clip->user->name }}</div>
+
+                                </td>
+
 
                                 <!-- Delete Button -->
                                 <td>

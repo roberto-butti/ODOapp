@@ -20,6 +20,9 @@ class ClipController extends Controller
      */
     protected $clips;
 
+    public $path_clip_upload ='/public/upload/clip/catalog/';
+    public $url_clip_upload ='/upload/clip/catalog/';
+
 
     /**
      * Create a new controller instance.
@@ -41,6 +44,7 @@ class ClipController extends Controller
     public function index(Request $request)
     {
         return view('clips.index', [
+            'url_clip_upload' => $this->url_clip_upload,
             'clips' => $this->clips->forUser($request->user()),
         ]);
     }
@@ -63,7 +67,7 @@ class ClipController extends Controller
       ]);
       $clipName = $clip->id . '.' .$request->file('audio')->getClientOriginalExtension();
       $request->file('audio')->move(
-        base_path() . '/public/upload/clip/catalog/', $clipName
+        base_path() . $this->path_clip_upload, $clipName
       );
       $clip->url_clip = $clipName;
       $clip->save();

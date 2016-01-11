@@ -72,7 +72,8 @@
                                     <div>{{ $clip->caption }}</div>
                                 </td>
                                 <td class="table-text">
-                                    <div>{{ $clip->url_clip }}</div>
+                                    <div>
+                                    <a href="{{ $url_clip_upload}}{{ $clip->url_clip }}">{{ $clip->url_clip }}</a></div>
 
                                 </td>
                                 <td class="table-text">

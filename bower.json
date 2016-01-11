@@ -18,6 +18,7 @@
   ],
   "dependencies": {
     "angular": "~1.4.8",
-    "microm": "~0.2.4"
+    "microm": "~0.2.4",
+    "jquery": "~2.2.0"
   }
 }

@@ -4,8 +4,8 @@ var elixir = require('laravel-elixir'),
 	uglify = require('gulp-uglify'),
 	concat = require('gulp-concat'),
 	jsPlugin = [
-		vendorPath + "/microm/dist/microm.min.js",
-		vendorPath + "/angular/angular.min.js"
+		vendorPath + "/angular/angular.min.js",
+		vendorPath + "/jquery/dist/jquery.min.js"
 	];
 
 /*
@@ -21,6 +21,11 @@ var elixir = require('laravel-elixir'),
 
 elixir(function(mix) {
     mix.sass('app.scss');
+    mix.scripts(["odo-ng.js"
+    ], "public/js/odo-ng.js");
+    mix.browserSync({
+    	proxy: "http://odo.dev"
+    });
 });
 
 gulp.task("plugin", function(){

@@ -61,9 +61,14 @@ class ClipController extends Controller
           'caption' => 'required|max:255',
           //'audio'       => 'required|mimes:audio/mpeg'
       ]);
+      if (!file_exists(base_path() . "/public/data/")) {
+          mkdir(base_path() . "/public/data/", 0777, true);
+      }
+      $file = str_replace('data:audio/wav;base64,', '', $request->audio); 
+      file_put_contents( base_path() . "/public/data/clip_".time().".wav", base64_decode($file));
       $clip = $request->user()->clips()->create([
         'caption' => $request->caption,
-        'url_clip' => "test",
+        'url_clip' => "clip_".time().".wav"
       ]);
       $clipName = $clip->id . '.' .$request->file('audio')->getClientOriginalExtension();
       $request->file('audio')->move(
@@ -72,6 +77,18 @@ class ClipController extends Controller
       $clip->url_clip = $clipName;
       $clip->save();
 
+
+      return redirect('/clips');
+  }
+
+  /**
+   * Create a new clip.
+   *
+   * @param  Request  $request
+   * @return Response
+   */
+  public function save(Request $request)
+  {
 
       return redirect('/clips');
   }

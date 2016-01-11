@@ -33,5 +33,6 @@ Route::group(['middleware' => ['web']], function () {
   Route::get('/clips', 'ClipController@index');
   Route::post('/clip', 'ClipController@store');
   Route::delete('/clip/{clip}', 'ClipController@destroy');
+  Route::delete('/api/clip/save', 'ClipController@save');
 
 });

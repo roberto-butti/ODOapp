@@ -12,16 +12,17 @@
 
         <!-- New clip Form -->
 
-        <form action="/clip" method="POST" class="form-horizontal" enctype="multipart/form-data">
+        <form action="/clip" method="POST" class="form-horizontal" enctype="multipart/form-data" ng-controller="newClip">
             {{ csrf_field() }}
 
            <!-- clip Audio file -->
             <div class="form-group">
                 <label for="clip-name" class="col-sm-3 control-label">Audio</label>
 
+                    <input type="hidden" name="audio" id="clip-audio" class="form-control">
                 <div class="col-sm-6">
-                    <input type="file" accept="audio/*" capture="microphone" name="audio" id="clip-audio" class="form-control">
-
+                    <button class="start-rec" ng-click="start($event)">Start</button>
+                    <button class="stop-rec" ng-click="stop($event)">Stop</button>
                 </div>
             </div>
 
@@ -37,12 +38,14 @@
             <!-- Add clip Button -->
             <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-6">
-                    <button type="submit" class="btn btn-default">
+                    <button type="submit" class="btn btn-default" >
                         <i class="fa fa-plus"></i> Add clip
                     </button>
                 </div>
             </div>
         </form>
+        <div class="clips-cont">
+        </div>
     </div>
 
 <!-- Current clips -->
@@ -73,7 +76,7 @@
                                 </td>
                                 <td class="table-text">
                                     <div>
-                                    <a href="{{ $url_clip_upload}}{{ $clip->url_clip }}">{{ $clip->url_clip }}</a></div>
+                                    <audio src="data/{{ $clip->url_clip }}" controls ></audio></div>
 
                                 </td>
                                 <td class="table-text">

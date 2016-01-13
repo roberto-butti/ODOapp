@@ -76,7 +76,7 @@
                                 </td>
                                 <td class="table-text">
                                     <div>
-                                    <audio src="data/{{ $clip->url_clip }}" controls ></audio></div>
+                                    <audio src="{{ $url_clip_upload }}/{{ $clip->url_clip }}" controls ></audio></div>
 
                                 </td>
                                 <td class="table-text">

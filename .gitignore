@@ -8,3 +8,7 @@ Homestead.json
 /public/vendor
 /public/js
 /public/css
+
+/npm-debug.log
+/config/local/
+

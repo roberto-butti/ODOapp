@@ -1,2 +1,163 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+$maxWidth: 1170px;
+
+body{
+	color: #333;
+}
+
+.app-content{
+	max-width: $maxWidth;
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.app-content > * > *{
+	text-align: left;
+}
+
+.elementCards{
+	position: relative;
+	border-radius: 2px;
+	background: #fff;
+	width: 600px;
+    display: inline-block;
+	padding: 15px;
+	box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 2px 6px rgba(0,0,0,.12);
+
+	&.maxPadding{
+		padding: 15px 30px;
+	}
+}
+
+.clips_content{
+	display: block;
+	margin: 0 auto;
+	padding: 0;
+	text-align: center;
+	max-width: 600px;
+
+	> li{
+		display: block;
+		padding-bottom: 15px;
+
+		&:first-child{
+			padding-top: 15px;
+		}
+	}
+
+	.caret{
+		color: #333;
+	}
+
+	.dropdown-menu{
+		left: auto;
+		right: 0;
+	}
+
+	button{
+		display: block;
+		width: 100%;
+		text-align: left;
+	}
+}
+
+
+button{
+
+	&:hover{
+		box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 2px 6px rgba(0,0,0,.12);
+	}
+
+	&.link-style{
+		border: 0;
+		padding: 0;
+		background: transparent;
+		outline: none;
+
+		&:hover{
+			box-shadow: none;
+		}
+	}	
+}
+
+.options-clip{
+	position: absolute;
+	right: 10px;
+	top: 0px;
+	display: block;
+}
+
+.dropdown{
+	display: block;
+}
+
+.spectre{
+	position: relative;
+	width: 300px;
+	height: 50px;
+	background: url(/img/flat.svg) 0 -1px no-repeat;
+	background-size: 300px 100px;
+	margin-bottom: 15px;
+
+	> div{
+		position: absolute;
+		top: 0;
+		right: 0;
+		height: 100%;
+		width: 0%;
+		background: #fff url(/img/sound.svg) 0 -2px no-repeat;
+		background-size: 300px 100px;
+	}
+}
+
+.spinner-container{
+
+  -webkit-animation: rotate 1.5s ease-in-out infinite;
+          animation: rotate 1.5s ease-in-out infinite;
+}
+.spinner-container .path {
+  stroke-dasharray: 1,150;
+  stroke-dashoffset: 0;
+  stroke: rgba(50, 50, 50, 0.7);
+  stroke-linecap: round;
+  -webkit-animation: dash 1.5s ease-in-out infinite;
+          animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100% { transform: rotate(360deg); }
+}
+@-webkit-keyframes rotate{
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes dash {
+  0% {
+      stroke-dasharray: 1,150; 
+      stroke-dashoffset: 0;
+  }
+  50% {
+      stroke-dasharray: 90,150;
+      stroke-dashoffset: -35;
+  }
+  100% {
+      stroke-dasharray: 90,150;
+      stroke-dashoffset: -124;
+  }
+}
+@-webkit-keyframes dash {
+  0% {
+      stroke-dasharray: 1,150;
+      stroke-dashoffset: 0;
+  }
+  50% {
+      stroke-dasharray: 90,150;
+      stroke-dashoffset: -35;
+  }
+  100% {
+      stroke-dasharray: 90,150;
+      stroke-dashoffset: -124;
+  }
+}

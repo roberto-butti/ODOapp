@@ -61,7 +61,9 @@ class ClipController extends Controller
           'caption' => 'required|max:255',
           //'audio'       => 'required|mimes:audio/mpeg'
       ]);
-
+      if(!file_exists(base_path() . $this->path_clip_upload)){
+        mkdir(base_path() . $this->path_clip_upload, 0777, true);
+      }
       $file = str_replace('data:audio/wav;base64,', '', $request->audio);
       $filename= "clip_".time().".wav";
       file_put_contents( base_path() . $this->path_clip_upload. "/". $filename, base64_decode($file));
@@ -76,18 +78,6 @@ class ClipController extends Controller
       //$clip->url_clip = $clipName;
       //$clip->save();
 
-
-      return redirect('/clips');
-  }
-
-  /**
-   * Create a new clip.
-   *
-   * @param  Request  $request
-   * @return Response
-   */
-  public function save(Request $request)
-  {
 
       return redirect('/clips');
   }

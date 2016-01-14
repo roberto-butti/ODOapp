@@ -21,7 +21,8 @@ body{
 	position: relative;
 	border-radius: 2px;
 	background: #fff;
-	width: 600px;
+	width: 100%;
+	text-align: left;
     display: inline-block;
 	padding: 15px;
 	box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 2px 6px rgba(0,0,0,.12);
@@ -44,6 +45,10 @@ body{
 
 		&:first-child{
 			padding-top: 15px;
+		}
+
+		&:last-child{
+			padding-bottom: 0px;
 		}
 	}
 
@@ -112,52 +117,21 @@ button{
 	}
 }
 
-.spinner-container{
-
-  -webkit-animation: rotate 1.5s ease-in-out infinite;
-          animation: rotate 1.5s ease-in-out infinite;
+.col-2{
+	width: calc(25% - 2px);
+	display: inline-block;
+	vertical-align: top;
+	> div{
+		padding: 15px;
+		padding-bottom: 0;
+	}
 }
-.spinner-container .path {
-  stroke-dasharray: 1,150;
-  stroke-dashoffset: 0;
-  stroke: rgba(50, 50, 50, 0.7);
-  stroke-linecap: round;
-  -webkit-animation: dash 1.5s ease-in-out infinite;
-          animation: dash 1.5s ease-in-out infinite;
-}
-
-@keyframes rotate {
-  100% { transform: rotate(360deg); }
-}
-@-webkit-keyframes rotate{
-  100% { -webkit-transform: rotate(360deg); }
-}
-
-@keyframes dash {
-  0% {
-      stroke-dasharray: 1,150; 
-      stroke-dashoffset: 0;
-  }
-  50% {
-      stroke-dasharray: 90,150;
-      stroke-dashoffset: -35;
-  }
-  100% {
-      stroke-dasharray: 90,150;
-      stroke-dashoffset: -124;
-  }
-}
-@-webkit-keyframes dash {
-  0% {
-      stroke-dasharray: 1,150;
-      stroke-dashoffset: 0;
-  }
-  50% {
-      stroke-dasharray: 90,150;
-      stroke-dashoffset: -35;
-  }
-  100% {
-      stroke-dasharray: 90,150;
-      stroke-dashoffset: -124;
-  }
+.col-4{
+	width: calc(50% - 3px);
+	display: inline-block;
+	vertical-align: top;
+	> div{
+		padding: 15px;
+		padding-bottom: 0;
+	}
 }

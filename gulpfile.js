@@ -1,11 +1,13 @@
 var elixir = require('laravel-elixir'),
 	vendorPath = "bower_components",
+	helperPath = "resources/assets/js/helper",
 	gulp = require("gulp"),
 	uglify = require('gulp-uglify'),
 	concat = require('gulp-concat'),
 	jsPlugin = [
 		vendorPath + "/angular/angular.min.js",
-		vendorPath + "/jquery/dist/jquery.min.js"
+		vendorPath + "/jquery/dist/jquery.min.js",
+		helperPath + "/pinBox.min.js"
 	];
 
 /*

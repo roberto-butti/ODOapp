@@ -69,3 +69,18 @@ app.controller("newClip",["$scope",function($scope){
 		}
 	}
 }]);
+
+app.directive("pinTo",function(){
+
+	function link(scope,element,attrs){
+		$(element).pinBox({
+			Top : '30px',
+			Container : attrs.pinTo
+		});
+	}
+
+	return{
+		restrict: "A",
+		link:link
+	};
+});

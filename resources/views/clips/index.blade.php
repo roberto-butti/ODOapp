@@ -14,8 +14,11 @@
             <div class="col-2">
                 <div class="col-pad">
                     <div pin-to=".clips-container">
-                        <div class="user elementCards">
-                           aaaaaa
+                        <div class="elementCards noPadding tCenter padOnlyB">
+                            <div class="card-header" style="background-image:url(/img/profile/{{ Auth::user()->photo_header }});">
+                                <div class="photo-profile"><img src="/img/profile/{{ Auth::user()->photo_profile }}"></div>
+                            </div>
+                            <div>{{ Auth::user()->name }}</div>
                         </div>
                     </div>
                 </div>
@@ -100,7 +103,7 @@
             <div class="col-pad">
                 <div pin-to=".clips-container">
                     <div class="user elementCards">
-                        bbbb
+                        
                     </div>
                 </div>
             </div>

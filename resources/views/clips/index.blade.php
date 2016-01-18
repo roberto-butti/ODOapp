@@ -19,6 +19,8 @@
                                 <div class="photo-profile"><img src="/img/profile/{{ Auth::user()->photo_profile }}"></div>
                             </div>
                             <div>{{ Auth::user()->name }}</div>
+                            <div>I have {{ Auth::user()->Followers()->count() }} followers</div>
+                            <div>I follow {{ Auth::user()->FollowingList()->count() }} people</div>
                         </div>
                     </div>
                 </div>
@@ -76,7 +78,7 @@
                          <!-- Delete Button -->
                         <div class="options-clip">
                             <form action="/clip/{{ $clip->id }}" method="POST">
-                                {{ csrf_field() }}                        
+                                {{ csrf_field() }}
                                 {{ method_field('DELETE') }}
                                 <ul>
                                         <li class="dropdown">
@@ -92,7 +94,7 @@
                             </form>
                         </div>
 
-                       
+
                     </div>
                 </li>
                 @endforeach
@@ -103,7 +105,7 @@
             <div class="col-pad">
                 <div pin-to=".clips-container">
                     <div class="user elementCards">
-                        
+
                     </div>
                 </div>
             </div>

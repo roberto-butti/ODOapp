@@ -31,4 +31,19 @@ class User extends Authenticatable
     {
         return $this->hasMany(Clip::class);
     }
+
+
+
+    //get all the followers of the current user
+    public function Followers()
+    {
+        return $this->belongsToMany('App\User', 'user_follower_list', 'user_id', 'follower_id'  );
+    }
+
+    //get all the Users this user is following
+    public function FollowingList()
+    {
+        return $this->belongsToMany('App\User', 'user_follower_list', 'follower_id', 'user_id' );
+    }
+
 }

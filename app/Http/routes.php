@@ -35,6 +35,13 @@ Route::group(['middleware' => ['web']], function () {
   Route::delete('/clip/{clip}', 'ClipController@destroy');
   Route::delete('/api/clip/save', 'ClipController@save');
 
-   Route::get('/user/follow/{user}', 'UserController@follow');
+  Route::get('/user/follow/{user}', 'UserController@follow');
 
 });
+
+Route::group(['prefix' => 'i/user','middleware' => ['web']], function () {
+  Route::post('/follow', 'ApiUserController@follow');
+  Route::post('/unfollow', 'ApiUserController@unfollow');
+
+});
+

@@ -7,6 +7,7 @@ var elixir = require('laravel-elixir'),
 	jsPlugin = [
 		vendorPath + "/angular/angular.min.js",
 		vendorPath + "/jquery/dist/jquery.min.js",
+		vendorPath + "/progressbar.js/dist/progressbar.min.js",
 		helperPath + "/pinBox.min.js",
 		helperPath + "/wavesurfer.min.js"
 	];

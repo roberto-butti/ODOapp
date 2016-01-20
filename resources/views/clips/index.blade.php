@@ -32,35 +32,26 @@
 
                    <!-- clip Audio file -->
                     <div class="form-group">
-                        <label for="clip-name" class="col-sm-3 control-label">Audio</label>
+                        <div class="record-button">
+                            <span ng-click="start($event)">Record</span>
+                            <div class="record-option">
+                                <div id="recordCircle" class="rcircle">
+                                    <button class="stop-rec button-circle" ng-click="stop($event)">Stop</button>
+                                    <button class="start-rec btn btn-default re-record" ng-click="start($event)">Restart</button>
+                                </div>
+                                 <input type="hidden" name="audio" id="clip-audio" class="form-control">
+                            </div>
+                            <div class="message-option">
+                                 <input type="text" name="caption" id="clip-caption" class="form-control" size="60" placeholder="Text">
 
-                            <input type="hidden" name="audio" id="clip-audio" class="form-control">
-                        <div class="col-sm-6">
-                            <div class="spectre"><div></div></div>
-                            <button class="start-rec btn btn-default" ng-click="start($event)">Start</button>
-                            <button class="stop-rec btn btn-default" ng-click="stop($event)">Stop</button>
+                                <button type="submit" class="btn btn-default" >
+                                    <i class="fa fa-plus"></i> Add clip
+                                </button>
+                            </div>
+                        </div>
                             <!--<svg class="spinner-container" width="50px" height="50px" viewBox="0 0 52 52">
                               <circle class="path" cx="26px" cy="26px" r="20px" fill="none" stroke-width="3px"></circle>
                             </svg>-->
-                        </div>
-                    </div>
-
-                    <!-- clip Name -->
-                    <div class="form-group">
-                        <label for="clip-name" class="col-sm-3 control-label">Caption</label>
-
-                        <div class="col-sm-6">
-                            <input type="text" name="caption" id="clip-caption" class="form-control" size="60">
-                        </div>
-                    </div>
-
-                    <!-- Add clip Button -->
-                    <div class="form-group">
-                        <div class="col-sm-offset-3 col-sm-6">
-                            <button type="submit" class="btn btn-default" >
-                                <i class="fa fa-plus"></i> Add clip
-                            </button>
-                        </div>
                     </div>
                 </form>
 

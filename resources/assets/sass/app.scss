@@ -252,3 +252,91 @@ button{
 	}
 }
 
+.record-button{
+ 	margin: 0 25px;
+	border-radius: 5px;
+	overflow: hidden;
+
+	> span{
+		text-align: center;
+		background: #d44769;
+		color: #fff;
+		display: block;
+		padding: 10px 25px;
+		text-transform: uppercase;
+		cursor: pointer;
+
+		&:hover{
+			opacity: .9;
+		}
+	}
+
+	.record-option,.message-option{
+		display: none;
+		border-top: 1px solid #d0d0d0;
+		padding: 25px 0;
+		background: #f0f0f0;
+	}
+
+	.message-option{
+		text-align: center;
+
+		input{
+			width: 60%;
+			margin: 0 auto;
+			margin-bottom: 15px;
+		}
+	}
+
+	.rcircle{
+		height: 100px;
+		width: 100px;
+		margin: 0 auto;
+		position: relative;
+		overflow: hidden;
+
+		.button-circle{
+			position: absolute;
+			top: 4px;
+			left: 4px;
+			height: calc(100% - 8px);
+			width: calc(100% - 8px);
+			cursor: pointer;
+			background: #fff;
+			outline: none;
+			border-radius: 50%;
+			border: 0;
+			opacity: 0;
+			z-index: 1;
+			text-transform: uppercase;
+
+			&:hover{
+				opacity: 1;
+			}
+		}
+
+		.re-record{
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translate(-50%,101%);
+			transition: all .4s;
+		}
+
+		svg,.progressbar-text,.button-circle{
+			transform: scale(1);
+			transition: all .4s;
+		}
+
+		&.anim-stop{
+			svg,.progressbar-text,.button-circle{
+				transform: scale(0) !important;
+			}
+			.re-record{
+				bottom: 50%;
+				transform: translate(-50%,50%);
+			}
+		}
+	}
+}
+

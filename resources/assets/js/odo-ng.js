@@ -58,7 +58,6 @@ app.controller("newClip",["$scope",function($scope){
 	}
 
 	function spectre(timer){
-		console.log(timer);
 		if(timer == 29){
 			$(".spectre > div").css("width","100%");
 		}else{
@@ -77,6 +76,64 @@ app.directive("pinTo",function(){
 			Top : '30px',
 			Container : attrs.pinTo
 		});
+	}
+
+	return{
+		restrict: "A",
+		link:link
+	};
+});
+
+app.directive("playerMorf",function(){
+
+	function link(scope,element,attrs){
+		$(element).append("<div class='left'></div><div class='right'></div><div class='triangle-1'></div><div class='triangle-2'></div>")
+	}
+
+	return{
+		restrict: "C",
+		link:link
+	};
+});
+
+app.directive("clips",function(){
+
+	function link(scope,element,attrs){
+		var idwave = genUniqueId();
+
+		$(element).find(".wave").attr('id',idwave);
+		var wavesurfer = WaveSurfer.create({
+		    container: '#'+idwave,
+		    waveColor: '#4bfcd0',
+		    progressColor: '#17adce',
+		    barWidth: 2,
+		    height: 80,
+		    cursorWidth: 2
+		});
+
+		wavesurfer.on('ready', function () {
+			$(element).find(".loadWave").remove();
+		    
+		    $(element).find(".play").click(function(event) {
+		    	$(this).find(".player-morf").toggleClass('paused');
+		    	wavesurfer.playPause();
+		    });
+		});
+
+		wavesurfer.on("finish", function(){
+			$(element).find(".player-morf").removeClass('paused');
+		});
+
+		wavesurfer.load($(element).find("#"+idwave).data("url"));
+	}
+
+	function genUniqueId(){
+		var id ="wave" + Math.floor((Math.random()*999999999)+1);
+		if($("#"+id).length == 0){
+			return id;
+		}else{
+			genUniqueId();
+		}
 	}
 
 	return{

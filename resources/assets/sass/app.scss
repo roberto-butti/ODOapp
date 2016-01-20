@@ -174,3 +174,81 @@ button{
 		}
 	}
 }
+.clips-wave{
+	position: relative;
+}
+.wave{
+	display: inline-block;
+	position: relative;
+	width: calc(100% - 55px);
+    vertical-align: top;
+}
+.wave-controller{
+	position: relative;
+	height: 50px;
+	width: 50px;
+	margin: 15px 0;
+	display: inline-block;
+    vertical-align: top;
+}
+.player-morf{
+	height: 30px;
+	width: 30px;
+	display: block;
+	margin: 10px auto 10px 0;
+	cursor: pointer;
+	overflow: hidden;
+	position: relative;
+
+	.left{
+		height: 100%;
+		float: left;
+		background-color: #333;
+		width: 50%;
+		transition: all 0.25s ease;
+		overflow: hidden;
+	}
+	.triangle-1{
+		transform: translate(0, -50%);
+	}
+
+	.triangle-2{
+		transform: translate(0, 50%);
+	}
+	.triangle-1, .triangle-2{
+		position: absolute;
+		top: 0;
+		right: 0;
+		background-color: transparent;
+		width: 0;
+		height: 0;
+		border-right: 30px solid #fff;
+		border-top: 15px solid transparent;
+		border-bottom: 15px solid transparent;
+		transition: transform 0.25s ease;
+	}
+
+	.right{
+		height: 100%;
+		float: right;
+		width: 50%;
+		background-color: #333;
+		transition: all 0.25s ease;
+	}
+
+	&.paused{
+		.left{
+			width: 36%;
+		}
+		.right{
+			width: 36% ;
+		}
+		.triangle-1{
+			transform: translate(0, -100%);
+		}
+		.triangle-2{
+			transform: translate(0, 100%);
+		}
+	}
+}
+

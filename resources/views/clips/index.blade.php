@@ -69,11 +69,15 @@
                <ul class="clips_content">
                 @foreach ($clips as $clip)
                 <li>
-                    <div class="elementCards maxPadding">
+                    <div class="elementCards maxPadding" clips>
                         <!-- clip Caption -->
                         <div>{{ $clip->user->name }}</div>
                         <div>{{ $clip->caption }}</div>
-                        <div><audio src="{{ $url_clip_upload }}/{{ $clip->url_clip }}" controls ></audio></div>
+                        <div class="clips-wave">
+                            <div class="wave-controller play"><div class="player-morf"></div></div>
+                            <div class="wave" data-url="{{ $url_clip_upload }}/{{ $clip->url_clip }}"></div>
+                        </div>
+                        <!--<div><audio src="{{ $url_clip_upload }}/{{ $clip->url_clip }}" controls ></audio></div>-->
 
                          <!-- Delete Button -->
                         <div class="options-clip">

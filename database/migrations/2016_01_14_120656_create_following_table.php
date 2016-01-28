@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddFollowToUsersTable extends Migration
+class CreateFollowingTable extends Migration
 {
   /**
    * Run the migrations.
@@ -12,13 +12,13 @@ class AddFollowToUsersTable extends Migration
    */
   public function up()
   {
-    Schema::create('user_follower_list', function (Blueprint $table) {
+    Schema::create('user_following', function (Blueprint $table) {
       $table->increments('id');
       $table->integer('user_id')->unsigned();
       $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
-      $table->integer('follower_id')->unsigned();
-      $table->foreign('follower_id')->references('id')->on('users')->onDelete('cascade');
+      $table->integer('following_id')->unsigned();
+      $table->foreign('following_id')->references('id')->on('users')->onDelete('cascade');
       $table->timestamps();
     });
   }
@@ -30,6 +30,6 @@ class AddFollowToUsersTable extends Migration
    */
   public function down()
   {
-    Schema::drop('user_follower_list');
+    Schema::drop('user_following');
   }
 }

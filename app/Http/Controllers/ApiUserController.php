@@ -23,9 +23,9 @@ class ApiUserController extends Controller
     public function follow(Request $request)
     {
       //var_dump($request->user());
-      var_dump($request->follower_id);
+      var_dump($request->following_id);
       //die();
-      $request->user()->FollowingList()->attach($request->follower_id,[
+      $request->user()->FollowingList()->attach($request->following_id,[
 // other fields
 'created_at' => date('Y-m-d H:i:s'),
 'updated_at' => date('Y-m-d H:i:s')

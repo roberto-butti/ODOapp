@@ -40,7 +40,7 @@ Route::group(['middleware' => ['web']], function () {
 });
 
 Route::group(['prefix' => 'i/user','middleware' => ['web']], function () {
-  Route::post('/follow', 'ApiUserController@follow');
+  Route::get('/follow', 'ApiUserController@follow');
   Route::post('/unfollow', 'ApiUserController@unfollow');
 
 });

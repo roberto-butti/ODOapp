@@ -44,6 +44,7 @@ class ClipController extends Controller
     public function index(Request $request)
     {
         return view('clips.index', [
+            'user' => $request->user(),
             'url_clip_upload' => $this->url_clip_upload,
             'clips' => $this->clips->forUser($request->user()),
         ]);

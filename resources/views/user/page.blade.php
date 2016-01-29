@@ -13,7 +13,6 @@
         <div class="clips-container">
             @include('block.user.left')
 
-
             <div class="col-4"><div>
                 <form action="/clip" method="POST" class="form-horizontal elementCards maxPadding" enctype="multipart/form-data" ng-controller="newClip">
                     {{ csrf_field() }}

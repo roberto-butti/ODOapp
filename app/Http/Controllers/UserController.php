@@ -41,4 +41,19 @@ class UserController extends Controller
       'clips' => $this->clips->forUser($user)
     ]);
   }
+
+  /**
+   * main page.
+   *
+   * @param  Request  $request
+   * @param  User  $user
+   * @return Response
+   */
+  public function index(Request $request)
+  {
+    return view('user.page', [
+      'user' => $request->user(),
+      'clips' => $this->clips->forUser($user)
+    ]);
+  }
 }

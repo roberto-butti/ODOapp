@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Repositories\ClipRepository;
 
+use Auth;
 use App\User;
 
 
@@ -19,6 +20,8 @@ class UserController extends Controller
    * @var ClipRepository
    */
   protected $clips;
+  public $path_clip_upload ='/public/upload/clip/catalog/';
+  public $url_clip_upload ='/upload/clip/catalog/';
 
   public function __construct(ClipRepository $clips)
   {
@@ -51,9 +54,21 @@ class UserController extends Controller
    */
   public function index(Request $request)
   {
+
+    if (Auth::check()) {
+      return view('clips.index', [
+            'user' => $request->user(),
+            'url_clip_upload' => $this->url_clip_upload,
+            'clips' => $this->clips->forUser($request->user()),
+      ]);
+    } else {
+      return view('home');
+    }
+    /*
     return view('user.page', [
       'user' => $request->user(),
       'clips' => $this->clips->forUser($user)
     ]);
+    */
   }
 }

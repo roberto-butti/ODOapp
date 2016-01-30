@@ -28,7 +28,7 @@
 Route::group(['middleware' => ['web']], function () {
 
   Route::auth();
-  Route::get('/', 'MainController@index');
+  Route::get('/', 'UserController@index');
 
   Route::get('/clips', 'ClipController@index');
   Route::post('/clip', 'ClipController@store');

@@ -39,8 +39,11 @@ class UserController extends Controller
    */
   public function userpage(Request $request, User $user)
   {
+    $isAuth = Auth::user()->id == $user->id ? true : false;
     return view('user.page', [
       'user' => $user,
+      'auth' => $isAuth,
+      'url_clip_upload' => $this->url_clip_upload,
       'clips' => $this->clips->forUser($user)
     ]);
   }

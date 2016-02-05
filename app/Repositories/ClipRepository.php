@@ -15,7 +15,7 @@ class ClipRepository
      */
     public function forUser(User $user)
     {
-        return Clip::where('user_id', $user->id)
+        return Clip::where('user_id', $user->name)
                     ->orderBy('created_at', 'asc')
                     ->get();
     }

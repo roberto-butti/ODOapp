@@ -14,7 +14,9 @@
             @include('block.user.left')
 
             <div class="col-4"><div>
-            @include('block.formrecordclip')
+            @if($auth == true)
+                @include('block.formrecordclip')
+            @endif
 
         <!-- Current clips -->
             @if (count($clips) > 0)

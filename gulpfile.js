@@ -28,7 +28,7 @@ elixir(function(mix) {
     mix.scripts(["odo-ng.js"
     ], "public/js/odo-ng.js");
     mix.browserSync({
-    	proxy: "http://odo.dev"
+    	proxy: "http://localhost:9000"
     });
 });
 

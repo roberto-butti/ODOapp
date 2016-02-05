@@ -49,7 +49,7 @@ class UserTest extends TestCase
   public function testLogoutUser()
   {
     $this->visit('/logout')
-       ->seePageIs('/');
+       ->seePageIs('/login');
   }
 
 }
